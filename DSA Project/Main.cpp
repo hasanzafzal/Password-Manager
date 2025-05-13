@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    PasswordManager::App app;
+    App app;
     app.run();
     return 0;
 }
