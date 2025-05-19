@@ -1,33 +1,34 @@
 #pragma once
 #ifndef CREDENTIALMANAGER_H
 #define CREDENTIALMANAGER_H
+#include <list>
+#include <stack>
+#include <queue>
 #include <string>
+#include <random>
 using namespace std;
 
-struct Credential
+struct Credential 
 {
     string site;
     string username;
     string password;
 };
 
-struct Node
-{
-    Credential data;
-    Node* next;
-    Node(const Credential& cred) : data(cred), next(nullptr) {}
-};
-
-class CredentialManager
+class CredentialManager 
 {
 public:
-    CredentialManager();
-    ~CredentialManager();
-    void addCredential();
+    void addCredential(); 
+    void addCredential(const Credential& cred);
     void viewCredentials();
+    string generatePassword(int length = 12, bool includeSymbols = true);
+    void addPasswordToHistory(const string& password);
+    void addPasswordWithStrength(const string& password, int strength);
+    string getStrongestPassword();
 private:
-    Node* head;
-    void clear();
+    list<Credential> credentials;
+    stack<string> passwordHistory;
+    priority_queue<pair<int, string>> strengthHeap;
 };
 
-#endif
+ #endif
