@@ -1,55 +1,65 @@
 #include "CredentialManager.h"
 #include <iostream>
-using namespace std;
-
-CredentialManager::CredentialManager() : head(nullptr) {}
-
-CredentialManager::~CredentialManager() 
-{
-    clear();
-}
+#include <ctime>
+#include <algorithm>
 
 void CredentialManager::addCredential()
 {
-    Credential cred;
+    Credential c;
     cout << "Enter site: ";
-    cin >> cred.site;
+    cin >> c.site;
     cout << "Enter username: ";
-    cin >> cred.username;
+    cin >> c.username;
     cout << "Enter password: ";
-    cin >> cred.password;
-    Node* newNode = new Node(cred);
-    newNode->next = head;
-    head = newNode;
-    cout << "Credential added.\n";
+    cin >> c.password;
+    credentials.push_back(c);
+}
+
+void CredentialManager::addCredential(const Credential& cred) 
+{
+    credentials.push_back(cred);
 }
 
 void CredentialManager::viewCredentials()
 {
-    if (head == nullptr)
-    {
-        cout << "No credentials saved.\n";
-        return;
-    }
-
-    cout << "\nSaved Credentials:\n";
-    Node* current = head;
-    while (current != nullptr)
-    {
-        cout << "Site: " << current->data.site
-            << ", Username: " << current->data.username
-            << ", Password: " << current->data.password << "\n";
-        current = current->next;
+    for (const auto& c : credentials) {
+        cout << "Site: " << c.site << ", Username: " << c.username << ", Password: " << c.password << endl;
     }
 }
 
-void CredentialManager::clear() 
+string CredentialManager::generatePassword(int length, bool includeSymbols) 
 {
-    Node* current = head;
-    while (current != nullptr) {
-        Node* temp = current;
-        current = current->next;
-        delete temp;
-    }
-    head = nullptr;
+    const string letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const string numbers = "0123456789";
+    const string symbols = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+
+    string chars = letters + numbers;
+    if (includeSymbols) chars += symbols;
+
+    random_device rd;
+    mt19937 generator(rd());
+    uniform_int_distribution<int> distrib(0, static_cast<int>(chars.size()) - 1);
+
+    string password;
+    for (int i = 0; i < length; ++i)
+        password += chars[distrib(generator)];
+
+    return password;
+}
+
+void CredentialManager::addPasswordToHistory(const string& password)
+{
+    passwordHistory.push(password);
+}
+
+void CredentialManager::addPasswordWithStrength(const string& password, int strength) 
+{
+    strengthHeap.push(make_pair(strength, password));
+}
+
+string CredentialManager::getStrongestPassword()
+{
+    if (!strengthHeap.empty())
+        return strengthHeap.top().second;
+    return "";
 }
