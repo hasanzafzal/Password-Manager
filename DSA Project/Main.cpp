@@ -10,10 +10,8 @@ int main()
     app.run();
     cout << "\n--- Feature Demonstration ---" << endl;
     CredentialManager manager;
-    // Add a test credential
     Credential cred = { "example.com", "user123", "pass456" };
     manager.addCredential(cred);
-
     cout << "\nSaved Credentials:" << endl;
     manager.viewCredentials();
     string generated = manager.generatePassword(14, true);
