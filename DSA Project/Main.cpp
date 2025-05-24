@@ -9,7 +9,7 @@
 #include <cppconn/resultset.h>
 #include <cppconn/exception.h>
 #include <cppconn/prepared_statement.h>
-
+#include <cppconn/driver.h>
 using namespace std;
 using namespace sql;
 
