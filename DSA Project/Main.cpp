@@ -47,6 +47,27 @@ int main()
     {
         cout << "\nBinary Search: Site not found!" << endl;
     }
+    try 
+    {
+        sql::Driver* driver = get_driver_instance();
+        std::unique_ptr<sql::Connection> con(driver->connect("tcp://127.0.0.1:3306", "your_username", "your_password"));
+        con->setSchema("PasswordManager");
+
+        cout << "Connected to MySQL database successfully!" << endl;
+
+        std::unique_ptr<sql::Statement> stmt(con->createStatement());
+        std::unique_ptr<sql::ResultSet> res(stmt->executeQuery("SELECT * FROM Users"));
+
+        while (res->next()) {
+            cout << "User: " << res->getString("username") << endl;
+        }
+
+    }
+    catch (sql::SQLException& e) {
+        cerr << "MySQL error: " << e.what() << endl;
+        return 1;
+    }
+    return 0;
 
     return 0;
 }
