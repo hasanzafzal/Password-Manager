@@ -132,12 +132,20 @@
     <ClCompile Include="CredentialManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SecurityUtils.cpp" />
+    <ClCompile Include="shell.c" />
+    <ClCompile Include="sqlite3.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
     <ClInclude Include="AuthManager.h" />
     <ClInclude Include="CredentialManager.h" />
     <ClInclude Include="SecurityUtils.h" />
+    <ClInclude Include="sqlite3.h" />
+    <ClInclude Include="sqlite3ext.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sqlite3.def" />
+    <None Include="sqlite3.dll" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
