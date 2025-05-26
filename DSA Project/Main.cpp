@@ -3,7 +3,6 @@
 #include "App.h"
 #include "CredentialManager.h"
 #include "Security.h"
-#include "HashingUtils.h"
 #include <mysql_driver.h>
 #include <mysql_connection.h>
 #include <cppconn/statement.h>
@@ -49,10 +48,6 @@ int main()
         cout << "\nBinary Search Found: " << found->site << " -> " << found->username << endl;
     else
         cout << "\nBinary Search: Site not found!" << endl;
-
-    string passwordToHash = "mySecretPassword";
-    string hashedPassword = Hashing::sha256(passwordToHash);
-    cout << "\nHashed Password (SHA-256): " << hashedPassword << endl;
 
     try
     {
