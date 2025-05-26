@@ -2,7 +2,7 @@
 #include <memory>
 #include "App.h"
 #include "CredentialManager.h"
-#include "Security.h"
+#include "SecurityUtils.h"
 #include <mysql_driver.h>
 #include <mysql_connection.h>
 #include <cppconn/statement.h>
