@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <memory>
 #include <string>
 #include "App.h"
@@ -14,6 +14,23 @@
 using namespace std;
 using namespace sql;
 
+void saveToDatabase(const string& site, const string& username, const string& password) {
+    try {
+        sql::Driver* driver = get_driver_instance();
+        unique_ptr<Connection> con(driver->connect("tcp://127.0.0.1:3306", "root", "Bahria123"));
+        con->setSchema("PasswordManager");
+
+        unique_ptr<PreparedStatement> pstmt(con->prepareStatement("INSERT INTO Credentials(site, username, password) VALUES (?, ?, ?)"));
+        pstmt->setString(1, site);
+        pstmt->setString(2, username);
+        pstmt->setString(3, password);
+        pstmt->executeUpdate();
+
+        cout << "Saved " << site << " to database." << endl;
+    } catch (sql::SQLException& e) {
+        cerr << "Database insert error: " << e.what() << endl;
+    }
+}
 
 int main()
 {
@@ -23,9 +40,15 @@ int main()
     cout << "\n--- Feature Demonstration ---" << endl;
 
     CredentialManager manager;
+
     manager.addCredential("example.com", "user123", "pass456");
+    saveToDatabase("example.com", "user123", "pass456");
+
     manager.addCredential("google.com", "alice", "pass789");
+    saveToDatabase("google.com", "alice", "pass789");
+
     manager.addCredential("github.com", "bob", "code123");
+    saveToDatabase("github.com", "bob", "code123");
 
     cout << "\nSaved Credentials:" << endl;
     manager.viewCredentials();
