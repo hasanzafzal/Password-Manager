@@ -1,12 +1,11 @@
 #pragma once
-#ifndef APP_H
-#define APP_H
 
-class App 
+#include <afxwin.h>
+
+class DSAApp : public CWinApp
 {
 public:
-    App();
-    void run();
-};
+    virtual BOOL InitInstance();
 
-#endif 
+    DECLARE_MESSAGE_MAP()
+};

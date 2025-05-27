@@ -1,46 +1,26 @@
-#include "App.h"
-#include "AuthManager.h"
-#include "CredentialManager.h"
-#include <iostream>
-using namespace std;
+﻿#include "App.h"
+#include "MainWindow.h"
+#include <afxctl.h>  // Required for AfxEnableControlContainer()
 
-App::App() 
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#endif
+
+BEGIN_MESSAGE_MAP(DSAApp, CWinApp)
+    // Add message handlers if needed
+END_MESSAGE_MAP()
+
+DSAApp theApp;
+
+BOOL DSAApp::InitInstance()
 {
-}
+    CWinApp::InitInstance();
+    AfxEnableControlContainer(); // ✅ This requires afxctl.h
 
-void App::run()
-{
-    AuthManager auth;
-    if (!auth.authenticate())
-    {
-        cout << "Authentication failed. Exiting...\n";
-        return;
-    }
+    MainWindow* mainWnd = new MainWindow();
+    m_pMainWnd = mainWnd;
+    mainWnd->ShowWindow(SW_SHOW);
+    mainWnd->UpdateWindow();
 
-    CredentialManager manager;
-    int choice;
-    do
-    {
-        cout << "\n=== Password Manager ===\n";
-        cout << "1. Add Credential\n";
-        cout << "2. View Credentials\n";
-        cout << "0. Exit\n";
-        cout << "Enter your choice: ";
-        cin >> choice;
-
-        switch (choice)
-        {
-        case 1:
-            manager.addCredential();
-            break;
-        case 2:
-            manager.viewCredentials();
-            break;
-        case 0:
-            cout << "Exiting...\n";
-            break;
-        default:
-            cout << "Invalid choice.\n";
-        }
-    } while (choice != 0);
+    return TRUE;
 }
