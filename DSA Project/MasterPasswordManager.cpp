@@ -1,0 +1,1 @@
+// Manages master password logic

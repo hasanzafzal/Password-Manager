@@ -18,6 +18,58 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.cpp" />
+    <ClCompile Include="AuthManager.cpp" />
+    <ClCompile Include="AutoLockManager.cpp" />
+    <ClCompile Include="BreachCheck.cpp" />
+    <ClCompile Include="CategoryManager.cpp" />
+    <ClCompile Include="ClipboardHelper.cpp" />
+    <ClCompile Include="CredentialManager.cpp" />
+    <ClCompile Include="CredentialManagerUI.cpp" />
+    <ClCompile Include="DarkModeManager.cpp" />
+    <ClCompile Include="ExportImportManager.cpp" />
+    <ClCompile Include="LoginDialog.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MainDashboard.cpp" />
+    <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="MasterPasswordManager.cpp" />
+    <ClCompile Include="MySQLConnection.cpp" />
+    <ClCompile Include="NotificationManager.cpp" />
+    <ClCompile Include="PasswordGenerator.cpp" />
+    <ClCompile Include="PasswordStrengthMeter.cpp" />
+    <ClCompile Include="SecurityUtils.cpp" />
+    <ClCompile Include="SettingsDialog.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="App.h" />
+    <ClInclude Include="AuthManager.h" />
+    <ClInclude Include="AutoLockManager.h" />
+    <ClInclude Include="BreachCheck.h" />
+    <ClInclude Include="CategoryManager.h" />
+    <ClInclude Include="ClipboardHelper.h" />
+    <ClInclude Include="CredentialManager.h" />
+    <ClInclude Include="CredentialManagerUI.h" />
+    <ClInclude Include="DarkModeManager.h" />
+    <ClInclude Include="ExportImportManager.h" />
+    <ClInclude Include="Linkedlist.h" />
+    <ClInclude Include="LoginDialog.h" />
+    <ClInclude Include="MainDashboard.h" />
+    <ClInclude Include="MainWindow.h" />
+    <ClInclude Include="MasterPasswordManager.h" />
+    <ClInclude Include="MySQLConnection.h" />
+    <ClInclude Include="NotificationManager.h" />
+    <ClInclude Include="PasswordGenerator.h" />
+    <ClInclude Include="PasswordStrengthMeter.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="resource1.h" />
+    <ClInclude Include="SecurityUtils.h" />
+    <ClInclude Include="SettingsDialog.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DSA Project.rc" />
+    <ResourceCompile Include="PasswordManager.rc" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -144,23 +196,7 @@
     </Link>
   </ItemDefinitionGroup>
   <!-- Source files -->
-  <ItemGroup>
-    <ClCompile Include="App.cpp" />
-    <ClCompile Include="AuthManager.cpp" />
-    <ClCompile Include="CredentialManager.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="MainWindow.cpp" />
-    <ClCompile Include="SecurityUtils.cpp" />
-  </ItemGroup>
   <!-- Header files -->
-  <ItemGroup>
-    <ClInclude Include="App.h" />
-    <ClInclude Include="AuthManager.h" />
-    <ClInclude Include="CredentialManager.h" />
-    <ClInclude Include="Linkedlist.h" />
-    <ClInclude Include="MainWindow.h" />
-    <ClInclude Include="SecurityUtils.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
 </Project>

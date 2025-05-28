@@ -2,6 +2,9 @@
 
 #include <afxwin.h>
 
+// Forward declare MainDashboard to avoid include loop
+class MainDashboard;
+
 class MainWindow : public CFrameWnd
 {
 public:
@@ -13,4 +16,7 @@ protected:
     afx_msg void OnExit();
 
     DECLARE_MESSAGE_MAP()
+
+private:
+    MainDashboard* m_dashboard; // Pointer to the dashboard window
 };
