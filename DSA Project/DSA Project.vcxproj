@@ -30,7 +30,6 @@
     <ClCompile Include="DarkModeManager.cpp" />
     <ClCompile Include="ExportImportManager.cpp" />
     <ClCompile Include="LoginDialog.cpp" />
-    <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainDashboard.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="MasterPasswordManager.cpp" />
