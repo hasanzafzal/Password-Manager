@@ -1,1 +1,0 @@
-// Header for category management
