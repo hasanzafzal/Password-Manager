@@ -1,0 +1,16 @@
+debug/LinkedList.o
+debug/App.o
+debug/MainWindow.o
+debug/LoginDialog.o
+debug/Main.o
+debug/MainDashboard.o
+debug/PasswordManagerBackend.o
+debug/Stack.o
+debug/Queue.o
+debug/BST.o
+debug/Graph.o
+debug/qrc_PasswordManager.o
+debug/moc_App.o
+debug/moc_MainWindow.o
+debug/moc_LoginDialog.o
+debug/moc_MainDashboard.o

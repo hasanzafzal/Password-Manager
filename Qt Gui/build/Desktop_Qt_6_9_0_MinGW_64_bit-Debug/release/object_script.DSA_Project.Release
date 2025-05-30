@@ -1,0 +1,16 @@
+release/LinkedList.o
+release/App.o
+release/MainWindow.o
+release/LoginDialog.o
+release/Main.o
+release/MainDashboard.o
+release/PasswordManagerBackend.o
+release/Stack.o
+release/Queue.o
+release/BST.o
+release/Graph.o
+release/qrc_PasswordManager.o
+release/moc_App.o
+release/moc_MainWindow.o
+release/moc_LoginDialog.o
+release/moc_MainDashboard.o
