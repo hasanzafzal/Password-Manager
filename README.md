@@ -8,7 +8,7 @@ Data Structures and Algorithms Lab (CSL 221)
 
 ---
 
-## Project: Password Manager
+## Project: Memoir Password Manager
 
 A desktop password manager built with **C++** and the **Qt Widgets** framework, developed to demonstrate practical, from-scratch implementations of core data structures and algorithms taught in CSL 221 — rather than relying on the STL equivalents for the core logic.
 
